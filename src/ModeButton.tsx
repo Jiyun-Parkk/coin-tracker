@@ -9,6 +9,8 @@ export const ModeButton = styled.button<{ isActive: boolean }>`
 	display: inline-block;
 	background-color: ${(props) => (props.isActive ? "#354259" : "#FCF9C6")};
 	border-radius: 100%;
+	padding: 0;
+	margin: 0;
 	width: 50px;
 	height: 50px;
 	line-height: 50px;
