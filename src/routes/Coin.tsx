@@ -182,7 +182,7 @@ function Coin() {
 			</Helmet>
 			<Header>
 				<BackBtn>
-					<Link to="/">
+					<Link to="/coin-tracker">
 						<GoChevronLeft />
 					</Link>
 				</BackBtn>
