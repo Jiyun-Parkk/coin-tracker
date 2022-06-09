@@ -26,6 +26,7 @@
 		"react-dom": "^18.1.0",
 		"react-helmet": "^6.1.0",
 		"react-icons": "^4.4.0",
+		"react-in-viewport": "^1.0.0-alpha.28",
 		"react-query": "^3.39.1",
 		"react-router": "^6.3.0",
 		"react-router-dom": "^6.3.0",
