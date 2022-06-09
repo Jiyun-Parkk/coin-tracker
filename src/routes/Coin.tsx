@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { useLocation, useParams, Outlet, useMatch } from "react-router";
 import React, { Link } from "react-router-dom";

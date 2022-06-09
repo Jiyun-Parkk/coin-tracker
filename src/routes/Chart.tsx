@@ -47,8 +47,6 @@ function Chart() {
 				<>
 					<ApexChart
 						type="candlestick"
-						width="480"
-						height="400"
 						series={[
 							{
 								name: "Price",
@@ -57,7 +55,6 @@ function Chart() {
 						]}
 						options={{
 							chart: {
-								width: 480,
 								background: "transparent",
 								id: "candles",
 								toolbar: {

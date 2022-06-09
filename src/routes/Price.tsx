@@ -31,7 +31,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 		border: 0,
 	},
 	"th,td": {
-		width: 270,
+		width: "50%",
 	},
 	th: {
 		background: theme.thead,
@@ -90,7 +90,7 @@ function Price() {
 					component={Paper}
 					sx={{ borderRadius: 0, boxShadow: 0 }}
 				>
-					<Table sx={{ minWidth: 480 }} aria-label="customized table">
+					<Table sx={{ width: "100%" }} aria-label="customized table">
 						<TableBody>
 							<StyledTableRow key={1}>
 								<StyledTableCell component="th" align="center">

@@ -12,6 +12,9 @@ const GlobalStyle = createGlobalStyle`
 	*{
 		box-sizing:border-box;
 	}
+	body,html{
+		width:100vw;
+	}
 	body {
 		font-family:'Source Sans Pro', sans-serif;
 		background-color:${(props) => props.theme.bgColor}
@@ -23,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 const Container = styled.div`
 	position: relative;
-	width: 540px;
+	max-width: 90%;
 	margin: 0 auto;
 `;
 

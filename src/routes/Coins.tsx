@@ -33,6 +33,7 @@ const Title = styled.h1`
 const CoinsList = styled.ul``;
 
 const Coin = styled.li`
+	margin: 0 auto;
 	background-color: ${(props) => props.theme.labelColor};
 	color: ${(props) => props.theme.textColor};
 	margin-bottom: 10px;
@@ -42,6 +43,7 @@ const Coin = styled.li`
 	box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.2);
 	a {
 		display: flex;
+		font-size: 18px;
 		transition: color 0.2s ease-in;
 		align-items: center;
 		line-height: 50px;
