@@ -88,7 +88,11 @@ function Price() {
 			) : (
 				<TableContainer
 					component={Paper}
-					sx={{ borderRadius: 0, boxShadow: 0 }}
+					sx={{
+						borderRadius: 0,
+						boxShadow: 0,
+						marginBottom: "100px",
+					}}
 				>
 					<Table sx={{ width: "100%" }} aria-label="customized table">
 						<TableBody>
