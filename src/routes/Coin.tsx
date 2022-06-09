@@ -36,6 +36,8 @@ const Title = styled.h1`
 	transform: translate(-50%, -50%);
 	white-space: nowrap;
 	font-size: 24px;
+	text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.3);
+	font-weight: 600;
 	color: ${(props) => props.theme.textColor};
 `;
 

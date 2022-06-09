@@ -26,7 +26,9 @@ const Header = styled.header`
 `;
 const Title = styled.h1`
 	line-height: 60px;
-	font-size: 24px;
+	font-size: 28px;
+	text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.3);
+	font-weight: 600;
 	color: ${(props) => props.theme.textColor};
 `;
 

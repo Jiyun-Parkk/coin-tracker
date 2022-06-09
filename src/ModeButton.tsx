@@ -13,6 +13,7 @@ export const ModeButton = styled.button<{ isActive: boolean }>`
 	height: 50px;
 	line-height: 50px;
 	font-size: 30px;
+	box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.3);
 	cursor: pointer;
 	z-index: 20;
 `;

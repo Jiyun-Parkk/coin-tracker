@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 const Container = styled.div`
 	position: relative;
-	max-width: 90%;
+	max-width: 480px;
 	margin: 0 auto;
 `;
 
