@@ -5,6 +5,7 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { dark, light } from "./theme";
 import "reset.css.ts";
 import { ModeButton } from "./ModeButton";
+import styled from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
@@ -12,9 +13,6 @@ const GlobalStyle = createGlobalStyle`
 		box-sizing:border-box;
 	}
 	body {
-		width:540px;
-		margin:0 auto;
-		position:relative;
 		font-family:'Source Sans Pro', sans-serif;
 		background-color:${(props) => props.theme.bgColor}
 	}
@@ -23,24 +21,33 @@ const GlobalStyle = createGlobalStyle`
 		text-decoration:none;
 	}
 `;
+const Container = styled.div`
+	position: relative;
+	width: 540px;
+	margin: 0 auto;
+`;
 
 function App() {
-	const [mode, setMode] = useState("☪");
+	const lightIcon = "🌞";
+	const darkIcon = "☾";
+	const [mode, setMode] = useState(darkIcon);
 	const [theme, setTheme] = useState(light);
 	const handleMode = () => {
-		mode === "🌞" ? setMode("☪") : setMode("🌞");
+		mode === lightIcon ? setMode(darkIcon) : setMode(lightIcon);
 		theme === light ? setTheme(dark) : setTheme(light);
 	};
 	return (
 		<>
-			<ModeButton isActive={theme === light} onClick={handleMode}>
-				{mode}
-			</ModeButton>
-			<ThemeProvider theme={theme}>
-				<GlobalStyle />
-				<Router />
-				<ReactQueryDevtools initialIsOpen={false} />
-			</ThemeProvider>
+			<Container>
+				<ModeButton isActive={theme === light} onClick={handleMode}>
+					{mode}
+				</ModeButton>
+				<ThemeProvider theme={theme}>
+					<GlobalStyle />
+					<Router />
+					<ReactQueryDevtools initialIsOpen={false} />
+				</ThemeProvider>
+			</Container>
 		</>
 	);
 }
