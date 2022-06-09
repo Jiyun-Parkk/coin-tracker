@@ -14,6 +14,10 @@ const GlobalStyle = createGlobalStyle`
 	}
 	body,html{
 		width:100vw;
+		overflow-x:hidden;
+	}
+	body::-webkit-scrollbar{
+		display:none;
 	}
 	body {
 		font-family:'Source Sans Pro', sans-serif;
