@@ -36,8 +36,6 @@ const Container = styled.div`
 `;
 
 function App() {
-	const lightIcon = "🌞";
-	const darkIcon = "☾";
 	const isDark = useRecoilValue(isDarkAtom);
 	return (
 		<>
