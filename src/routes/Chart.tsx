@@ -3,6 +3,8 @@ import { useParams } from "react-router";
 import { fetchCoinHistory } from "../api";
 import ApexChart from "react-apexcharts";
 import styled from "styled-components";
+import { useRecoilValue } from "recoil";
+import { isDarkAtom } from "../atoms";
 
 const Loader = styled.div`
 	color: ${(props) => props.theme.textColor};
@@ -18,6 +20,7 @@ interface IHistorical {
 	volume: number;
 	market_cap: number;
 }
+
 function Chart() {
 	const params = useParams();
 	const { isLoading, data: historyData } = useQuery<IHistorical[]>(
@@ -38,7 +41,7 @@ function Chart() {
 			] as number[],
 		};
 	}) as [];
-
+	const isDark = useRecoilValue(isDarkAtom);
 	return (
 		<div>
 			{isLoading ? (
@@ -54,6 +57,9 @@ function Chart() {
 							},
 						]}
 						options={{
+							theme: {
+								mode: isDark ? "dark" : "light",
+							},
 							chart: {
 								background: "transparent",
 								id: "candles",

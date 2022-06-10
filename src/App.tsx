@@ -4,8 +4,9 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { dark, light } from "./theme";
 import "reset.css.ts";
-import { ModeButton } from "./ModeButton";
 import styled from "styled-components";
+import { useRecoilValue } from "recoil";
+import { isDarkAtom } from "./atoms";
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
@@ -37,19 +38,11 @@ const Container = styled.div`
 function App() {
 	const lightIcon = "🌞";
 	const darkIcon = "☾";
-	const [mode, setMode] = useState(darkIcon);
-	const [theme, setTheme] = useState(light);
-	const handleMode = () => {
-		mode === lightIcon ? setMode(darkIcon) : setMode(lightIcon);
-		theme === light ? setTheme(dark) : setTheme(light);
-	};
+	const isDark = useRecoilValue(isDarkAtom);
 	return (
 		<>
 			<Container>
-				<ModeButton isActive={theme === light} onClick={handleMode}>
-					{mode}
-				</ModeButton>
-				<ThemeProvider theme={theme}>
+				<ThemeProvider theme={isDark ? dark : light}>
 					<GlobalStyle />
 					<Router />
 					<ReactQueryDevtools initialIsOpen={false} />

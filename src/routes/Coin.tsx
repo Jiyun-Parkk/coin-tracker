@@ -5,6 +5,11 @@ import { fetchCoinInfo, fetchCoinTickers } from "../api";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import { GoChevronLeft } from "react-icons/go";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { isDarkAtom } from "../atoms";
+
+import { Loader, Header, ModeButton } from "../Header";
+
 const BackBtn = styled.div`
 	a {
 		font-size: 50px;
@@ -17,17 +22,8 @@ const Container = styled.div`
 	margin: 0 auto;
 `;
 
-const Loader = styled.span`
-	display: block;
-	text-align: center;
-	color: ${(props) => props.theme.textColor};
-	font-size: 28px;
-`;
-
-const Header = styled.header`
-	position: relative;
-	align-item: center;
-	margin: 20px 0;
+const HeaderCoin = styled(Header)`
+	justify-content: space-between;
 `;
 const Title = styled.h1`
 	position: absolute;
@@ -36,8 +32,8 @@ const Title = styled.h1`
 	transform: translate(-50%, -50%);
 	white-space: nowrap;
 	font-size: 24px;
-	text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.3);
 	font-weight: 600;
+	text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.3);
 	color: ${(props) => props.theme.textColor};
 `;
 
@@ -151,6 +147,10 @@ interface IPriceData {
 }
 
 function Coin() {
+	const isDark = useRecoilValue(isDarkAtom);
+	const setDarkAtom = useSetRecoilState(isDarkAtom);
+	const toggleDarkAtom = () => setDarkAtom((prev) => !prev);
+
 	const { coinId } = useParams();
 	const { state } = useLocation() as RouteState;
 	const priceMatch = useMatch("/:coinId/price");
@@ -181,7 +181,7 @@ function Coin() {
 						: infoData?.name}
 				</title>
 			</Helmet>
-			<Header>
+			<HeaderCoin>
 				<BackBtn>
 					<Link to="/coin-tracker">
 						<GoChevronLeft />
@@ -195,7 +195,10 @@ function Coin() {
 						? "Loading..."
 						: infoData?.name}
 				</Title>
-			</Header>
+				<ModeButton onClick={toggleDarkAtom} isActive={isDark}>
+					{isDark ? "🌞" : "☾"}
+				</ModeButton>
+			</HeaderCoin>
 			{loading ? (
 				<Loader>Loading...</Loader>
 			) : (

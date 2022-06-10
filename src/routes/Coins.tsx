@@ -1,35 +1,16 @@
 import { Helmet } from "react-helmet";
 import { useQuery } from "react-query";
 import React, { Link } from "react-router-dom";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import { fetchCoins } from "../api";
+import { isDarkAtom } from "../atoms";
+import { Loader, Header, Title, ModeButton } from "../Header";
 
 const Container = styled.div`
 	max-width: 540px;
 	padding: 0 20px;
 	margin: 0 auto;
-`;
-
-const Loader = styled.span`
-	display: block;
-	text-align: center;
-	color: ${(props) => props.theme.textColor};
-	font-size: 28px;
-`;
-
-const Header = styled.header`
-	height: 60px;
-	display: flex;
-	justify-content: center;
-	align-item: center;
-	margin: 20px 0;
-`;
-const Title = styled.h1`
-	line-height: 60px;
-	font-size: 28px;
-	text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.3);
-	font-weight: 600;
-	color: ${(props) => props.theme.textColor};
 `;
 
 const CoinsList = styled.ul``;
@@ -87,6 +68,10 @@ interface CoinInterface {
 }
 
 function Coins() {
+	const isDark = useRecoilValue(isDarkAtom);
+	const setDarkAtom = useSetRecoilState(isDarkAtom);
+	const toggleDarkAtom = () => setDarkAtom((prev) => !prev);
+
 	//queryKey: unique identifier, fetcher function
 	const { isLoading, data } = useQuery<CoinInterface[]>(
 		"allCoins",
@@ -99,6 +84,9 @@ function Coins() {
 			</Helmet>
 			<Header>
 				<Title>Coins</Title>
+				<ModeButton onClick={toggleDarkAtom} isActive={isDark}>
+					{isDark ? "🌞" : "☾"}
+				</ModeButton>
 			</Header>
 			{isLoading ? (
 				<Loader>Loading...</Loader>
