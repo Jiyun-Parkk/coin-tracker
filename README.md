@@ -5,7 +5,7 @@
   <img src="https://user-images.githubusercontent.com/72537762/188574911-6335febb-af7f-4c81-8524-bbe15baa0fbc.gif" />
  </div>
  
-## Propject start
+## Project start
 ```
   npm start
 ```
