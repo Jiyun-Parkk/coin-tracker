@@ -1,3 +1,3 @@
 export const UseCoin = () => {
-  return <></>
+  return <div>this is test</div>
 }
