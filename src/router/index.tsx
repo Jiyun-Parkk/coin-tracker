@@ -6,7 +6,7 @@ import Layout from 'layout'
 
 function Router() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Home />} />
