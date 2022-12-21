@@ -5,7 +5,6 @@ import { dark, light } from './style/theme'
 import { useRecoilValue } from 'recoil'
 import { isDarkMode } from './store'
 import { GlobalStyle } from './style/global.style'
-import 'reset.css.ts'
 
 function App() {
   const isDark = useRecoilValue(isDarkMode)

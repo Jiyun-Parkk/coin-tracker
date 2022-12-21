@@ -6,6 +6,7 @@ const Container = styled.main`
   max-width: 750px;
   padding: 0 20px;
   margin: 0 auto;
+  height: 100vh;
 `
 
 const Layout = () => {

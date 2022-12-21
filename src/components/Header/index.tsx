@@ -18,9 +18,11 @@ export const Header = () => {
       >
         {isDark ? '🌞' : '☾'}
       </button>
-      <button className='header-back-button'>
-        <Link to='/'>🔙</Link>
-      </button>
+      {coinId && (
+        <button className='header-back-button'>
+          <Link to='/'>🔙</Link>
+        </button>
+      )}
     </Container>
   )
 }
